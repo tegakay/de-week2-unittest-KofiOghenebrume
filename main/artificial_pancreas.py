@@ -43,6 +43,7 @@ class ArtificialPancreasSystem:
         elif self.glucose_level > (self.target_glucose + self.tolerance):
             insulin_needed =  (self.glucose_level - self.target_glucose) * self.insulin_sensitivity 
             self.insulin_administered += insulin_needed
+            self.administer_insulin(insulin_needed)
             return "administer_insulin", insulin_needed
 
         elif self.glucose_level < self.target_glucose - self.tolerance:
